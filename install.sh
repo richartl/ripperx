@@ -7,6 +7,9 @@ sudo pacman -Syu --noconfirm
 echo -e "\n \e[92m Install git\e[0m"
 sudo pacman -S git --noconfirm
 
+echo -e "\n \e[92m Install rsync\e[0m"
+sudo pacman -S rsync --noconfirm
+
 echo -e "\n \e[92m Install pcmanfm\e[0m"
 sudo pacman -S pcmanfm --noconfirm
 
