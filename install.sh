@@ -77,6 +77,9 @@ yaourt -Syu --noconfirm
 # Install oh my zsh
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 
+#install nvm
+curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.6/install.sh | bash
+
 
 # Install yaourt dependencies
 echo -e "\n \e[92m Install spotify\e[0m"
