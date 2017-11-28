@@ -118,5 +118,14 @@ echo -e "\n \e[92m Install dotfiles\e[0m"
 git clone https://github.com/richartl/dotfiles.git ~/.dotfiles
 rcup
 
+echo -e "\n \e[92m Install python 2.7\e[0m"
+sudo pacman -S python2 --noconfirm
+sudo pacman -S python2-pip
+ln -s /usr/bin/python2 ~/.bin/python
+ln -s /usr/bin/python2-config ~/.bin/python-config
+ln -s /usr/bin/pip2 ~/.bin/pip
+sudo pip install fabric vo-fabutils
+
+
 echo -e "\n \e[92m Install ssh\e[0m"
 git clone https://ricardo-pcan@bitbucket.org/ricardo-pcan/rippersh.git ~/.ssh
