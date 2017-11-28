@@ -1,8 +1,17 @@
 #!/bin/bash
 
 echo -e "\n \e[92m Update dependencies\e[0m"
-echo -ne
 sudo pacman -Syu --noconfirm
+
+echo -e "\n \e[92m Configure locale\e[0m"
+sudo localectl set-locale LANG="en_US.UTF-8"
+sudo locale-gen
+
+echo -e "\n \e[92m NTP\e[0m"
+sudo pacman -S ntp --noconfirm
+sudo systemctl enable ntpd
+sudo systemctl start ntpd
+timedatectl set-ntp 1
 
 echo -e "\n \e[92m Install git\e[0m"
 sudo pacman -S git --noconfirm
@@ -95,15 +104,19 @@ echo -e "\n \e[92m Install rcm\e[0m"
 yaourt -S rcm --noconfirm
 
 echo -e "\n \e[92m Install franz\e[0m"
-yaourt -S franz-bin --noconfirm
+yaourt -S franz --noconfirm
 
 echo -e "\n \e[92m Install \e[0m"
 yaourt -S polybar --noconfirm
 
 # Install vim spf13
+echo -e "\n \e[92m Install vim\e[0m"
 curl http://j.mp/spf13-vim3 -L -o - | sh
 
 # Get config
+echo -e "\n \e[92m Install dotfiles\e[0m"
 git clone https://github.com/richartl/dotfiles.git ~/.dotfiles
+rcup
 
-
+echo -e "\n \e[92m Install ssh\e[0m"
+git clone https://ricardo-pcan@bitbucket.org/ricardo-pcan/rippersh.git ~/.ssh
