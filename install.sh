@@ -19,6 +19,12 @@ sudo pacman -S git --noconfirm
 echo -e "\n \e[92m Install rsync\e[0m"
 sudo pacman -S rsync --noconfirm
 
+echo -e "\n \e[92m Install gnome keyring rsync\e[0m"
+sudo pacman -S gnome-keyring --noconfirm
+
+echo -e "\n \e[92m Install gnome keyring rsync\e[0m"
+sudo pacman -S network-manager-applet --noconfirm
+
 echo -e "\n \e[92m Install pcmanfm\e[0m"
 sudo pacman -S pcmanfm --noconfirm
 
@@ -106,8 +112,11 @@ yaourt -S rcm --noconfirm
 echo -e "\n \e[92m Install franz\e[0m"
 yaourt -S franz --noconfirm
 
-echo -e "\n \e[92m Install \e[0m"
+echo -e "\n \e[92m Install polybar \e[0m"
 yaourt -S polybar --noconfirm
+
+echo -e "\n \e[92m Install shutter\e[0m"
+yaourt -S shutter --noconfirm
 
 # Install vim spf13
 echo -e "\n \e[92m Install vim\e[0m"
@@ -120,11 +129,11 @@ rcup
 
 echo -e "\n \e[92m Install python 2.7\e[0m"
 sudo pacman -S python2 --noconfirm
-sudo pacman -S python2-pip
+sudo pacman -S python2-pip --noconfirm
 ln -s /usr/bin/python2 ~/.bin/python
 ln -s /usr/bin/python2-config ~/.bin/python-config
 ln -s /usr/bin/pip2 ~/.bin/pip
-sudo pip install fabric vo-fabutils
+sudo pip install fabric vo-fabutils docker-compose
 
 
 echo -e "\n \e[92m Install ssh\e[0m"
