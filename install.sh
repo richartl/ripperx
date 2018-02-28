@@ -1,14 +1,29 @@
 #!/bin/bash
 
 echo -e "\n \e[92m Update dependencies\e[0m"
-echo -ne
 sudo pacman -Syu --noconfirm
+
+echo -e "\n \e[92m Configure locale\e[0m"
+sudo localectl set-locale LANG="en_US.UTF-8"
+sudo locale-gen
+
+echo -e "\n \e[92m NTP\e[0m"
+sudo pacman -S ntp --noconfirm
+sudo systemctl enable ntpd
+sudo systemctl start ntpd
+timedatectl set-ntp 1
 
 echo -e "\n \e[92m Install git\e[0m"
 sudo pacman -S git --noconfirm
 
 echo -e "\n \e[92m Install rsync\e[0m"
 sudo pacman -S rsync --noconfirm
+
+echo -e "\n \e[92m Install gnome keyring rsync\e[0m"
+sudo pacman -S gnome-keyring --noconfirm
+
+echo -e "\n \e[92m Install gnome keyring rsync\e[0m"
+sudo pacman -S network-manager-applet --noconfirm
 
 echo -e "\n \e[92m Install pcmanfm\e[0m"
 sudo pacman -S pcmanfm --noconfirm
@@ -97,13 +112,29 @@ yaourt -S rcm --noconfirm
 echo -e "\n \e[92m Install rambox\e[0m"
 yaourt -S rambox-bin --noconfirm
 
-echo -e "\n \e[92m Install \e[0m"
+echo -e "\n \e[92m Install polybar \e[0m"
 yaourt -S polybar --noconfirm
 
+echo -e "\n \e[92m Install shutter\e[0m"
+yaourt -S shutter --noconfirm
+
 # Install vim spf13
+echo -e "\n \e[92m Install vim\e[0m"
 curl http://j.mp/spf13-vim3 -L -o - | sh
 
 # Get config
+echo -e "\n \e[92m Install dotfiles\e[0m"
 git clone https://github.com/richartl/dotfiles.git ~/.dotfiles
+rcup
+
+echo -e "\n \e[92m Install python 2.7\e[0m"
+sudo pacman -S python2 --noconfirm
+sudo pacman -S python2-pip --noconfirm
+ln -s /usr/bin/python2 ~/.bin/python
+ln -s /usr/bin/python2-config ~/.bin/python-config
+ln -s /usr/bin/pip2 ~/.bin/pip
+sudo pip install fabric vo-fabutils docker-compose
 
 
+echo -e "\n \e[92m Install ssh\e[0m"
+git clone https://ricardo-pcan@bitbucket.org/ricardo-pcan/rippersh.git ~/.ssh
