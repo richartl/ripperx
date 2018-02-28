@@ -94,8 +94,8 @@ yaourt -S gpmdp --noconfirm
 echo -e "\n \e[92m Install rcm\e[0m"
 yaourt -S rcm --noconfirm
 
-echo -e "\n \e[92m Install franz\e[0m"
-yaourt -S franz-bin --noconfirm
+echo -e "\n \e[92m Install rambox\e[0m"
+yaourt -S rambox-bin --noconfirm
 
 echo -e "\n \e[92m Install \e[0m"
 yaourt -S polybar --noconfirm
