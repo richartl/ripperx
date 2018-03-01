@@ -16,6 +16,9 @@ timedatectl set-ntp 1
 echo -e "\n \e[92m Install git\e[0m"
 sudo pacman -S git --noconfirm
 
+echo -e "\n \e[92m Install portaudio\e[0m"
+sudo pacman -S portaudio --noconfirm
+
 echo -e "\n \e[92m Install rsync\e[0m"
 sudo pacman -S rsync --noconfirm
 
@@ -118,6 +121,12 @@ yaourt -S polybar --noconfirm
 echo -e "\n \e[92m Install shutter\e[0m"
 yaourt -S shutter --noconfirm
 
+echo -e "\n \e[92m Install libspotify\e[0m"
+yaourt -S libspotify --noconfirm
+
+echo -e "\n \e[92m Install sconsify\e[0m"
+yaourt -S sconsify --noconfirm
+
 # Install vim spf13
 echo -e "\n \e[92m Install vim\e[0m"
 curl http://j.mp/spf13-vim3 -L -o - | sh
@@ -133,7 +142,12 @@ sudo pacman -S python2-pip --noconfirm
 ln -s /usr/bin/python2 ~/.bin/python
 ln -s /usr/bin/python2-config ~/.bin/python-config
 ln -s /usr/bin/pip2 ~/.bin/pip
-sudo pip install fabric vo-fabutils docker-compose
+
+
+echo -e "\n \e[92m Install pomo\e[0m"
+cd /usr/bin/
+sudo curl -L -o pomo https://github.com/kevinschoon/pomo/releases/download/0.5.0/pomo-0.5.0-linux-amd64
+sudo chmod +x pomo
 
 
 echo -e "\n \e[92m Install ssh\e[0m"
